@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+		<script src="../node_modules/angular/angular.js"></script>
+		<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="js/app.js"></script>
+	</head>
+
+	<body ng-controller="StoreController as store">
+		<!-- basic expression -->
+		<p>{{"hello" + " you"}}</p>
+
+		<!-- attached our controller to this element: calls the controller name, then uses keyword 'as', then creates an alias 'store' -->
+
+		<!-- shows a product if it is not soldOut -->
+		<!-- <div ng-show="!store.product.soldOut"> -->
+
+		<!-- a more readable way is to ng-hide a product that is soldOut -->
+		<!-- <div ng-hide="store.product.soldOut">
+			<h1> {{store.product.name}} </h1>
+			<h2> ${{store.product.price}} </h2>
+			<p> {{store.product.description}} </p>
+			<button ng-show="store.product.canPurchase"> Add to Cart </button>
+		</div> -->
+
+		<!-- a dynamic way to iterate through all items in an array -->
+		<div ng-repeat="product in store.products">
+			<h1> {{product.name}} </h1>
+			<h2> ${{product.price}} </h2>
+			<p> {{product.description}} </p>
+			<button ng-show="product.canPurchase">Add to Cart</button>
+		</div>
+
+	</body>
+
+</html>

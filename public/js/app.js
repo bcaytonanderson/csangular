@@ -1,0 +1,27 @@
+// wrap entire app in a closure
+(function() {
+	// module line: name ('store'), and dependencies array (currently empty)
+	var app = angular.module('store', []);
+
+
+	app.controller('StoreController', function() {
+		this.products = gems;
+	});
+
+	var gems = [
+		{
+			name: 'Dodecahedron',
+			price: 2.95,
+			description: '. . .',
+			canPurchase: true,
+			soldOut: true,
+		},
+		{
+			name: 'Pentagonal Gem',
+			price: 5.95,
+			description: '. . .',
+			canPurchase: false,
+		}
+	];
+	
+})();
