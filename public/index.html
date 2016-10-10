@@ -27,12 +27,24 @@
 		</div> -->
 
 		<!-- a dynamic way to iterate through all items in an array -->
-		<div ng-repeat="product in store.products">
+		<!-- <div ng-repeat="product in store.products">
 			<h1> {{product.name}} </h1>
-			<h2> ${{product.price}} </h2>
+			built-in filter to deal with currency in a localized format
+			<h2> {{product.price | currency }} </h2>
 			<p> {{product.description}} </p>
 			<button ng-show="product.canPurchase">Add to Cart</button>
-		</div>
+		</div> -->
+
+		<!-- an unordered list of products using the ng-repeat directive, displaying images with ng-src -->
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="product in store.products">
+				<h3>
+					{{product.name}}
+					<em class="pull-right">{{product.price | currency}}</em>
+					<img ng-src="{{product.images[0].full}}"/>
+				</h3>
+			</li>
+		</ul>
 
 	</body>
 
