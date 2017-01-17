@@ -3,6 +3,22 @@
 	// module line: name ('store'), and dependencies array (currently empty)
 	var app = angular.module('store', []);
 
+	// the dash in the html tag will translate to camelCase in JS
+	app.directive('productTitle', function() {
+		// returns a directive definition object
+		return {
+			// configuration options
+			// specifies the type of directive; E stands for element here
+			restrict: 'E',
+			templateUrl: 'product-title.html'
+
+			// if we wanted to make it an attribute directive:
+			// restrict: 'A',
+			// templateUrl: 'product-title.html'
+		};
+
+	});
+
 	// good practice to initialize all variables
 	app.controller('ReviewController', function() {
 		// initializes as an empty object

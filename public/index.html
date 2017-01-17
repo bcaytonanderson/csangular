@@ -2,6 +2,7 @@
 <html ng-app="store">
 	<head>
 		<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/app.css">
 
 		<script src="../node_modules/angular/angular.js"></script>
 		<script src="../node_modules/jquery/dist/jquery.min.js"></script>
@@ -38,9 +39,13 @@
 		<!-- an unordered list of products using the ng-repeat directive, displaying images with ng-src -->
 		<ul class="list-group">
 			<li class="list-group-item" ng-repeat="product in store.products">
-				<h3>
-					{{product.name}}
-					<em class="pull-right">{{product.price | currency}}</em>
+				<!-- using ng-include -->
+				<!-- <h3 ng-include="'product-title.html'">
+				</h3>	 -->
+
+				<!-- instead of ng-include, we can do a custom directive -->
+				<!-- don't use a self-closing tag -->
+				<product-title></product-title>
 					<img ng-src="{{product.images[0].full}}"/>
 					<!-- ng-init sets an initial value for the tabs -->
 					<!-- <section ng-init="tab = 1">
@@ -102,7 +107,7 @@
 							</blockquote>
 
 							<!-- html form for adding new review -->
-							<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+							<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
 								<!-- live preview -->
 								<blockquote>
 									<b>Stars: {{reviewCtrl.review.stars}}</b>
@@ -110,16 +115,19 @@
 									<cite>by: {{reviewCtrl.review.author}}</cite>
 								</blockquote>
 								<!-- actual form -->
-								<select ng-model="reviewCtrl.review.stars">
+								<select ng-model="reviewCtrl.review.stars" required>
 									<option value="1">1 star</option>
 									<option value="2">2 stars</option>
 									<option value="3">3 stars</option>
 									<option value="4">4 stars</option>
 									<option value="5">5 stars</option>
 								</select>
-								<textarea ng-model="reviewCtrl.review.body"></textarea>
+								<textarea ng-model="reviewCtrl.review.body" required></textarea>
 								<label>by:</label>
-								<input ng-model="reviewCtrl.review.author" type="email" />
+								<input ng-model="reviewCtrl.review.author" type="email" required/>
+
+								<!-- prints form validity -->
+								<div> reviewForm is {{reviewForm.$valid}} </div>
 								<input type="submit" value="Submit" />
 							</form>
 						</div>
