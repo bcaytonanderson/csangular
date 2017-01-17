@@ -6,9 +6,22 @@
 		// defining the first route
 		$routeProvider.when('/notes', {
 			templateUrl: '/templates/pages/notes/index.html',
+			// for inline linking, define the controller here, with the route definition; this can get very lengthy
+			// controller: function() {}
+
+			// to use our Outisde Route Controller (js/controllers/notes-index-controller.js):
+			controller: 'NotesIndexController',
+			controllerAs: 'indexController'
 		})
 		.when('/notes/new', {
 			templateUrl: 'templates/pages/notes/edit.html',
+		})
+
+		// the : indicates a route parameter
+		.when('/notes/:id', {
+			templateUrl: 'templates/pages/notes/show.html',
+			controller: 'NotesShowController',
+			controllerAs: 'showController'
 		})
 
 		// chaining on more .when() methods to declare more routes

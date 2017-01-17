@@ -28,3 +28,27 @@ STAYING SHARP WITH ANGULAR
 		-In first lesson, we set var app = angular.module. . . and then reused that variable often. THIS IS BAD PRACTICE. Should redeclare angular.module each time.
 
 		-Need to have a backend to serve up the data for the app, such as Brackets, Node, or Rails (this lesson used Rails and put all levels of the app in one public folder).
+
+		LOGIC
+			-The $http service is how we make an async request to a server
+				-.get() retrieves data
+				-.post() creates new data
+				-.put() updates existing data
+				-.delete() destroys data
+
+			-Routes can have templates AND controllers
+				-2 ways to link controller to route:
+					-Inline- define the controller in the route itself
+					-Outside- use an outside controller (js/controllers)
+
+			-What if we want to show a single note?
+				-First, note is clicked.
+				-Second, route changes.
+				-Last, route loads in the view.
+
+				-Need to give each note <a> an ng-href
+
+				-Route Params: can pass parameters into the controller with $routeParams
+
+			-Create Controller
+				-Is going to need a method that the form can call to save a new note.
