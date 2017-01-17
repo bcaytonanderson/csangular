@@ -3,4 +3,28 @@ STAYING SHARP WITH ANGULAR
 -ORGANIZING: SEPARATE DIRECTORIES FOR ALL
 	-Best to have separate directories for Controllers, Filters, Services, and Directives.
 
--In notes-index.html, there is a lot of repetition. The only unique code which exists is within the main-wrapper div. Same for users-index.html: only unique code is within main-wrapper.
+	-In notes-index.html, there is a lot of repetition. The only unique code which exists is within the main-wrapper div. Same for users-index.html: only unique code is within main-wrapper.
+
+	ROUTES
+		-Now that index.html has a space to display a template, we need to define routes so those views will render.
+
+		FOUR STEPS TO ROUTE HAPPINESS
+			1. Using ngView
+				-use ng-view attribute to tell where to render the templates
+
+			2. Load ngRoute library
+				-used to be part of the core library, but has been removed
+				-<script src=". . ./angular-route.js"></script>
+
+			3. Import ngRoute module
+				-include ngRoute in app.js main module.
+
+			4. Define routes
+				-inside module.config we can user $routePRovider's methods to define routes:
+					-.when(path, route); - adds new route definition to $route service
+
+					-otherwise(params); - sets route def that will be used on route change when no other route def is matched
+
+		-In first lesson, we set var app = angular.module. . . and then reused that variable often. THIS IS BAD PRACTICE. Should redeclare angular.module each time.
+
+		-Need to have a backend to serve up the data for the app, such as Brackets, Node, or Rails (this lesson used Rails and put all levels of the app in one public folder).
