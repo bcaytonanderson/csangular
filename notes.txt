@@ -112,5 +112,14 @@ UNIT 4: CREATING A DIRECTIVE WITH AN ASSOCIATED CONTROLLER
 		-We can create a directive for bits of code that also use a controller:
 			-First, take the code and pull it into a new html file.
 
+UNIT 5: DEPENCIES AND SERVICES
+	-Our app needs to be organized into modules.
+		-First, pull all product directives into a products.js file.
 
+		-Wrap the entire block in its own closure
 
+		-Define the new module and give it a name
+
+		-Tell app.js that it depends on this new module.
+
+	-
