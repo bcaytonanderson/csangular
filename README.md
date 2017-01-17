@@ -1,2 +1,2 @@
 # csangular
-Notes following the Angular lesson from CodeSchool.
+Notes following the Staying Sharp with Angular lesson from CodeSchool.
