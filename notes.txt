@@ -60,3 +60,57 @@ UNIT 3
 			-<input ng-model="review.terms" type="checkbox" /> I agree to the terms (sets either true or false)
 
 			-<input ng-model="review.color" type="radio" value="red" /> Red (sets the value based on which input is selected)
+
+		-ng-submit allows us to call a function when a form is submitted.
+
+	FORM VALIDATIONS
+		-Angular has built-in validations.
+		-First step is to TURN OFF DEFAULT HTML VALIDATIONS
+		-Second, mark required fields
+		-"$valid"- the $ mean we are referencing a property, and "valid" is built-in to angular
+			-validates that an email address is a valid address.
+
+		-Only want to addReview if the form is valid- so we add "reviewForm.$valid && reviewCtrl.adReview(product)" to make sure the form will not be submitted unless it is valid.
+			-Input classes start as ng-pristine and ng-invalid when empty
+			-Input class changes to ng-dirty when there is a value, but not a valid one.
+			-Input class changes to "ng-dirty ng-valid" when there is a valid entry.
+
+			-We can highlight the invalid fields with some CSS
+
+		-Built-in validations include:
+			-emails
+			-URLs
+			-numbers (can specify a min or max) "min=1 max=10"
+
+UNIT 4: CREATING A DIRECTIVE WITH AN ASSOCIATED CONTROLLER
+	-If there are blocks of code which are repeated, we can pull them out into templates.
+
+	-ng-include uses both single and double quotes: ng-include="'product-title.html'"
+		-this is because ng-include is expecting a variable with the name of the file to include. To pass the name directly as a string, use single quotes
+
+	-When the browser does a request, it can only pull down one html file (the index). When it gets to the ng-include, it will make an AJAX request back to the server to pull down that file.
+
+	-When we want to include a template, we will use a custom directive.
+		-Allows us to write HTML which expresses behavior of the app.
+
+	CUSTOM DIRECTIVES
+		-Template-expanding directives are the simplest:
+			-define a custom tag or attribute that is expanded or replaced
+			-can include Controller logic, if needed
+
+		-Can also be used for:
+			-Expressing complex UI
+			-Calling events and registering handlers
+			-Reusing common components
+
+		-could also write an Attribute Directive so it would look like <h3 product-title></h3>
+
+		-Use Element Directives for UI widgets, and Attribute Directives for mixin behaviors like tooltips
+
+		-Angular allows us to write expressive HTML through custom directives to make code more descriptive/semantic.
+
+		-We can create a directive for bits of code that also use a controller:
+			-First, take the code and pull it into a new html file.
+
+
+

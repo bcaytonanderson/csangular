@@ -78,7 +78,7 @@
 					</section> -->
 
 					<!-- separating tab logic into a controller -->
-					<section ng-controller="PanelController as panel">
+					<!-- <section ng-controller="PanelController as panel">
 						<ul class="nav nav-pills">
 							<li ng-class="{ active: panel.isSelected(1) }">
 								<a href ng-click="panel.selectTab(1)">Description</a>
@@ -104,18 +104,18 @@
 								<b>Stars: {{review.stars}}</b>
 								{{review.body}}
 								<cite>by: {{review.author}}</cite>
-							</blockquote>
+							</blockquote> -->
 
 							<!-- html form for adding new review -->
-							<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+							<!-- <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate> -->
 								<!-- live preview -->
-								<blockquote>
+								<!-- <blockquote>
 									<b>Stars: {{reviewCtrl.review.stars}}</b>
 									{{reviewCtrl.review.body}}
 									<cite>by: {{reviewCtrl.review.author}}</cite>
-								</blockquote>
+								</blockquote> -->
 								<!-- actual form -->
-								<select ng-model="reviewCtrl.review.stars" required>
+								<!-- <select ng-model="reviewCtrl.review.stars" required>
 									<option value="1">1 star</option>
 									<option value="2">2 stars</option>
 									<option value="3">3 stars</option>
@@ -124,14 +124,20 @@
 								</select>
 								<textarea ng-model="reviewCtrl.review.body" required></textarea>
 								<label>by:</label>
-								<input ng-model="reviewCtrl.review.author" type="email" required/>
+								<input ng-model="reviewCtrl.review.author" type="email" required/> -->
 
 								<!-- prints form validity -->
-								<div> reviewForm is {{reviewForm.$valid}} </div>
+								<!-- <div> reviewForm is {{reviewForm.$valid}} </div>
 								<input type="submit" value="Submit" />
 							</form>
 						</div>
-					</section>
+					</section> -->
+
+					<!-- using the new custom directive, we do not need to use the ng-controller for our custom Element tag -->
+					<product-panels>
+
+					</product-panels>
+
 				</h3>
 			</li>
 		</ul>

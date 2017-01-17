@@ -19,6 +19,29 @@
 
 	});
 
+	app.directive('productPanels', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'product-panels.html',
+
+			// to include the controller, pull the logic from the controller written earlier using the controller keyword
+			controller:function(){
+				this.tab = 1;
+
+				this.selectTab = function(setTab) {
+					this.tab = setTab;
+				};
+
+				this.isSelected = function(checkTab) {
+					return this.tab === checkTab;
+				};
+			},
+
+			// specify the controller's alias
+			controllerAs: 'panels'
+		};
+	});
+
 	// good practice to initialize all variables
 	app.controller('ReviewController', function() {
 		// initializes as an empty object
@@ -37,20 +60,20 @@
 	});
 
 	// controller to handle the tab logic, instead of having it in HTML
-	app.controller("PanelController", function() {
-		// sets an initial value for the active tab.
-		this.tab = 1;
+	// app.controller("PanelController", function() {
+		// // sets an initial value for the active tab.
+		// this.tab = 1;
 
-		// function that takes the tab value as an argument and sets the active tab accordingly.
-		this.selectTab = function(setTab) {
-			this.tab = setTab;
-		};
+		// // function that takes the tab value as an argument and sets the active tab accordingly.
+		// this.selectTab = function(setTab) {
+		// 	this.tab = setTab;
+		// };
 
-		// function for comparison
-		this.isSelected = function(checkTab) {
-			return this.tab === checkTab;
-		};
-	});
+		// // function for comparison
+		// this.isSelected = function(checkTab) {
+		// 	return this.tab === checkTab;
+		// };
+	// });
 
 	var gems = [
 		{
