@@ -1,0 +1,6 @@
+STAYING SHARP WITH ANGULAR
+
+-ORGANIZING: SEPARATE DIRECTORIES FOR ALL
+	-Best to have separate directories for Controllers, Filters, Services, and Directives.
+
+-In notes-index.html, there is a lot of repetition. The only unique code which exists is within the main-wrapper div. Same for users-index.html: only unique code is within main-wrapper.
