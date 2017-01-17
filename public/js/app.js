@@ -3,6 +3,18 @@
 	// module line: name ('store'), and dependencies array (currently empty)
 	var app = angular.module('store', []);
 
+	// good practice to initialize all variables
+	app.controller('ReviewController', function() {
+		// initializes as an empty object
+		this.review = {};
+
+		this.addReview = function(product) {
+			// adds a new review to the product's review array
+			product.reviews.push(this.review);
+			// clears the review form by setting review to an empty object
+			this.review = {};
+		};
+	});
 
 	app.controller('StoreController', function() {
 		this.products = gems;
