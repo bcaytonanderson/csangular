@@ -42,6 +42,62 @@
 					{{product.name}}
 					<em class="pull-right">{{product.price | currency}}</em>
 					<img ng-src="{{product.images[0].full}}"/>
+					<!-- ng-init sets an initial value for the tabs -->
+					<!-- <section ng-init="tab = 1">
+						<ul class="nav nav-pills"> -->
+						<!-- ng-class taking an object as an argument. Taking the name of the class we want to set as a key and an expression to evaluate -->
+							<!-- <li ng-class="{ active:tab === 1}"> -->
+								<!-- use ng-click and assign a value to each tab -->
+								<!-- <a href ng-click="tab = 1">Description</a>
+							</li>
+							<li ng-class="{ active:tab === 2}">
+								<a href ng-click="tab = 2">Specifications</a>
+							</li>
+							<li ng-class="{ active:tab === 3}">
+								<a href ng-click="tab = 3">Reviews</a>
+							</li>
+						</ul> -->
+						<!-- containers for different panels, with ng-show evaluating the values of each tab -->
+						<!-- <div class="panel" ng-show="tab === 1">
+							<h4>Description</h4>
+							<p>{{product.description}}</p>
+						</div>
+						<div class="panel" ng-show="tab === 2">
+							<h4>Specifications</h4>
+							<blockquote>None yet</blockquote>
+						</div>
+						<div class="panel" ng-show="tab === 3">
+							<h4>Reviews</h4>
+							<blockquote>None yet</blockquote>
+						</div>
+					</section> -->
+
+					<!-- separating tab logic into a controller -->
+					<section ng-controller="PanelController as panel">
+						<ul class="nav nav-pills">
+							<li ng-class="{ active: panel.isSelected(1) }">
+								<a href ng-click="panel.selectTab(1)">Description</a>
+							</li>
+							<li ng-class="{ active: panel.isSelected(2) }">
+								<a href ng-click="panel.selectTab(2)">Specifications</a>
+							</li>
+							<li ng-class="{ active: panel.isSelected(3) }">
+								<a href ng-click="panel.selectTab(3)">Reviews</a>
+							</li>
+						</ul>
+						<div class="panel" ng-show="panel.isSelected(1)">
+							<h4>Description</h4>
+							<p>{{product.description}}</p>
+						</div>
+						<div class="panel" ng-show="panel.isSelected(2)">
+							<h4>Specifications</h4>
+							<blockquote>None yet</blockquote>
+						</div>
+						<div class="panel" ng-show="panel.isSelected(3)">
+							<h4>Reviews</h4>
+							<blockquote>None yet</blockquote>
+						</div>
+					</section>
 				</h3>
 			</li>
 		</ul>

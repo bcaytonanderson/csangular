@@ -8,6 +8,22 @@
 		this.products = gems;
 	});
 
+	// controller to handle the tab logic, instead of having it in HTML
+	app.controller("PanelController", function() {
+		// sets an initial value for the active tab.
+		this.tab = 1;
+
+		// function that takes the tab value as an argument and sets the active tab accordingly.
+		this.selectTab = function(setTab) {
+			this.tab = setTab;
+		};
+
+		// function for comparison
+		this.isSelected = function(checkTab) {
+			return this.tab === checkTab;
+		};
+	});
+
 	var gems = [
 		{
 			name: 'Dodecahedron',
