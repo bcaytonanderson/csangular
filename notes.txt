@@ -122,4 +122,24 @@ UNIT 5: DEPENCIES AND SERVICES
 
 		-Tell app.js that it depends on this new module.
 
-	-
+	-SERVICES
+		-Allow us to remove our array of objects from the modules and pull it instead from an API. 
+
+		-Services give a controller additional functionality, like:
+			-fetching JSON data from a web service with $http
+
+			-logging messages to the JS console with $log
+
+			-filtering an array with $filter
+
+		-all built-in services start with $
+
+		-using $http to fetch JSON, result will be automatically decoded into JS objects and arrays
+
+		-A controller uses a service like this:
+
+			app.controller('SomeController', [ '$http', '$log', function($http, $log) {
+
+			} ]);
+
+			-the array lists the service names, which then get used as arguments in the controller function (dependency injection)
