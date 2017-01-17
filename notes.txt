@@ -1,0 +1,62 @@
+RECAP OF UNIT 1: Directives
+
+Directives are "markers on a DOM element (such as an attribute, element name, comment, or CSS class) that tell ANgularJS's HTML compiler ( $compile ) to attach a specified behavior to that DOM element (e.g. via event listeners), or even to transform the DOM element and its children.
+
+Angular comes with a set of these directives built-in [...]. Much like you can create controllers and services, you can create your own directives for Angular to use. When Angular bootstraps your application, the HTML compiler traverses the DOM matching directives against the DOM elements." -docs.angularjs.org/guide/directive
+
+Unit 1 covered:
+	-<html ng-app="store">: attach the Application Module to the page
+
+	-<body ng-controller="StoreController as store">: attach a Controller function to the page (the controller function's name must be capitalized)
+
+	-<h1 ng-show="name">: ng-show/hide display a section based on an Expression
+
+	-<li ng-repeat="product in store.products">: repeat a section for each item in an Array.
+
+UNIT 2:
+	FILTERS
+		-There are a number of filters built in to Angular to handle certain situations.
+
+		-{{ product.price | currency }} will properly format a number to localized currency.
+
+		-Filter format: {{ data | filter:options }}
+			-date: {{'1388123412323'| date:'MM/dd/yyyy @ h:mma'}} = 12/27/2013 @ 12:50AM
+
+			-Upper-/Lowercase: {{'octagon gem' | uppercase}} = OCTAGON GEM
+
+			-limitTo: limits the output of the element
+				-{{'My Description' | limitTo:8}} = My Descr
+
+				-<li ng-repeat="product in store.products | limitTo:3"> = only returns 3 items from the array.
+
+			-orderBy: sorts output according to filter options
+				-<li ng-repeat="product in store.products | orderBy:'-price'"> = lists products by descending price. Without the -, products would be listed in ascending order of price.
+
+	NG-SRC for Images
+		-To render images properly, use the ng-src directive on the img tag.
+			-<img ng-src="{{product.images[0].full}}"/>
+
+	CREATING TABS AND BEHAVIOR
+		-To create various tabs in the display of a product, each showing different information, use the ng-click directive.
+
+		-By assigning a value to each of the tab items the {{tab}} expression automatically gets updated. This expression defines 2-way Data Binding.
+			-expressions are re-evaluated when a property changes.
+
+		-ng-init directive allows us to evaluate an expression in the current scope
+
+		-Setting an active tab using the bootstrap class, with the ng-class  directive.
+			-<li ng-class="{ active:tab === 1 }">
+
+	ORGANIZING LOGIC
+		-Logic shouldn't all be in the HTML. Can put the logic into a controller using the ng-controller directive.
+
+UNIT 3
+	FORMS AND MODELS
+		-ng-model directive binds the form element value to the property
+
+		-using this for 2-way Data Binding with our live preview
+
+		-can also us ng-model for other things, such as:
+			-<input ng-model="review.terms" type="checkbox" /> I agree to the terms (sets either true or false)
+
+			-<input ng-model="review.color" type="radio" value="red" /> Red (sets the value based on which input is selected)

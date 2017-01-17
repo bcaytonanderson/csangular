@@ -38,7 +38,19 @@
 						full: 'dodecahedron-02-full.jpg',
 						thumb: 'dodecahedron-02-thumb.jpg'
 					}
-				],
+			],
+			reviews: [
+				{
+					stars: 5,
+					body: "I love this product",
+					author: "joe@thomas.com"
+				},
+				{
+					stars: 1,
+					body: "This product sucks",
+					author: "tim@hater.com"
+				}
+			],
 			canPurchase: true,
 			soldOut: true,
 		},
