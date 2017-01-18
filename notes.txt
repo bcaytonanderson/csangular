@@ -52,3 +52,10 @@ STAYING SHARP WITH ANGULAR
 
 			-Create Controller
 				-Is going to need a method that the form can call to save a new note.
+
+UNIT 2
+
+	$scope
+		-Directive Template
+		-Using $scope within the controller instead of reference 'this' allows us a shorter, easier way to use the directive.
+		
