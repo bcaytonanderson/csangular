@@ -92,3 +92,17 @@ UNIT 2
 			-The scope object is used to isolate a directive's scope.
 
 			-$scope in the controller is used to set values/functions as properties on our scope object.
+
+	-Link
+		-What if we wanted to make it so that we could click on each card, and it would display the card description.
+
+		-We can add some CSS to establish our description element as hidden, and some jQuery to toggle the style on and off on a click.
+			-BUt where does the jQuery go?
+
+			-Each directive has a link function which is run after the directive has been compiled and linked up. THis is the best spot to DOM manipulation or logic functionality for the directive.
+				-Using link's element parameter, we don't need to search the entire dom for our target elements.
+
+		-If we want our descriptions to be displayed with proper markdown, we can download the markdown.js library.
+
+		-We can use ngBindHtml and $sce to tell angular to trust the markdown library.
+			-$sce: Strict Contextual Escaping service tells Angular to trust the hmtl.

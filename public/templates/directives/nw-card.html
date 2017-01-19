@@ -1,4 +1,10 @@
 <div class="card">
 	<h2 class="h3">{{header}}</h2>
 	<i class="icon icon-card {{icon}}"></i>
+	<!-- <p class="hidden">{{description}}</p> -->
+
+	<!-- need to use the ngBindHtml attr to bind the description -->
+	<div class="card-hidden">
+		<a ng-href="#/notes/{{id}}" ng-bind-html="description"></a>
+	</div>
 </div>

@@ -1,0 +1,8 @@
+.card {
+	position: relative;
+}
+
+/*adding some CSS so that when a user clicks on a card, it toggles the style on and off*/
+.card p.hidden {
+	display: none;
+}
