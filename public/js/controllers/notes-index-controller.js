@@ -1,10 +1,9 @@
 angular.module('NoteWrangler')
-.controller('NotesIndexController', function($http) {
+.controller('NotesIndexController', function($scope, Note) {
+	// $http({method: 'GET', url: '/notes'})
 
-	var controller = this;
-
-	$http({method: 'GET', url: '/notes'}).success(function(data) {
-		controller.notes = data;
+	// now that we have the factory for our $html functions:
+	Note.all().success(function(data) {
+		$scope.notes = data;
 	});
-
 });

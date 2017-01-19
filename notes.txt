@@ -106,3 +106,49 @@ UNIT 2
 
 		-We can use ngBindHtml and $sce to tell angular to trust the markdown library.
 			-$sce: Strict Contextual Escaping service tells Angular to trust the hmtl.
+
+UNIT 3: SERVICES
+	-Services hold functions responsible for connecting and fetching data, and then sharing it across the app.
+
+	-IF we create a service, we can use it in other controllers, directives, or other services.
+
+	-To define a service, there are five recipes to choose from:
+		-Value
+
+		-Factory
+
+		-Service
+
+		-Provider
+
+		-Constant
+
+	-Factory and Provider are the two most popular.
+		-Factory: share functions and objects across an app
+
+		-Provider: used for sharing methods and objects (like a factory), but allows for configuration
+
+	-Naming convention: Use the name of the service plus the recipe: NoteFactory
+
+	-A SERVICE FOR AN OUTSIDE API
+		-We want to show images for each of our users
+
+		-One solution is to use Gravatar: allows people to upload images associated with an email address. Then we will use the email to grab the photos.
+
+		-3 steps
+			-Hash the email
+			-Append to a gravatar URL
+			-Use this URL in the template.
+
+		-To hash the email: CryptoJS
+			-a JS library with an MD5 method.
+
+	-Value is used for sharing a value throughout app repeatedly.
+
+	-Factory: used for sharing methods and objects.
+
+	-Service: used for sharing instances of methods and objects, instead of actual methods or objects.
+
+	-Provider: sharing methods and objects (like a factory) but allows for configuration.
+
+	-Constant: shares a value within application configuration.

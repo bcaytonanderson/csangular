@@ -4,10 +4,16 @@
 	<div class="users-wrapper">
 		<a class="card-users" ng-repeat="user in users">
 
-			<div class="card" title="{{user.name}}">
+			<!-- <div class="card" title="{{user.name}}">
 				<h2 class="h3">{{user.name}}</h2>
 				<p>{{user.bio}}</p>
-			</div>
+			</div> -->
+
+			<nw-card header="user.name"
+							 image="gravatarUrl(user.email)"
+							 body="user.bio"
+							 id="user.id">
+			</nw-card>
 
 		</a>
 	</div>
