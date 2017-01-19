@@ -58,4 +58,37 @@ UNIT 2
 	$scope
 		-Directive Template
 		-Using $scope within the controller instead of reference 'this' allows us a shorter, easier way to use the directive.
-		
+
+	$scope, $config object.
+		-Directives, by default, inherit their parent's scope.
+		-So if we use the <nw-card> element, its parent is the ng-view div.
+			-So if we use the num varaible and increment it each time with the controller, the num gets updated each time and all cards displayed this way will have the end number listed in the title.
+
+			-To prevent this, we need to isolate the scope in the controller by passing scope an empty object:
+				scope: {}
+
+			-However, doing this will ensure that the element will no longer have access to its parent's scope.
+
+			-In order to tell a directive it might receive a variable and what to do with it, we need to configure it. Within the scope object, we declare the header and set it to "@":
+
+				scope: {
+					header: "@"
+				}
+
+			-There are 3 options when binding data to an isolate scope:
+				- @, =, and & characters.
+
+				- Using "=" instead of "@" uses a two-way binding, so if the var changes in one place.
+					- Then, in our custom directive tag, we would not use the expression (brackets). Instead:
+
+						<nw-card header="note.header"></nw-card>
+
+			-With an isolate scope, our directive can now be used in multiple places.
+				-We can use it to display our users using the same directive.
+					-We could pass in different things for our users:
+						<nw-card header={{user.name}} icon="user.image"></nw-card>
+
+		-scope object vs $scope
+			-The scope object is used to isolate a directive's scope.
+
+			-$scope in the controller is used to set values/functions as properties on our scope object.

@@ -10,7 +10,8 @@
 				ng-href='#/notes/{{note.id}}'>
 
 				<div class="card" title="{{note.title}}">
-					<nw-card></nw-card>
+					<!-- after isolating the scope of our custom directive, we need to declare an information we want to pass our template as an attr -->
+					<nw-card header="{{note.title}}" icon="note.icon"></nw-card>
 
 				</div>
 
